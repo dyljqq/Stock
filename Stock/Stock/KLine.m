@@ -100,7 +100,7 @@
     BOOL isKong = NO;
     ColorModel *colorModel = [UIColor RGBWithHexString:@"#FF0000" withAlpha:self.alpha]; // 设置默认红色
     // 如果开盘价坐标在收盘价坐标上方 则为绿色 即空
-    if (openPoint.y<closePoint.y) {
+    if (openPoint.y < closePoint.y) {
         isKong = YES;
         colorModel = [UIColor RGBWithHexString:@"#00FFFF" withAlpha:self.alpha]; // 设置为绿色
     }
@@ -110,7 +110,7 @@
     // 定义两个点 画两点连线
     if (!self.isVol) {
         CGContextSetLineWidth(context, 1); // 上下阴影线的宽度
-        if (self.lineWidth<=2) {
+        if (self.lineWidth <= 2) {
             CGContextSetLineWidth(context, 0.5); // 上下阴影线的宽度
         }
         const CGPoint points[] = {heightPoint, lowPoint};
@@ -129,7 +129,7 @@
         CGContextStrokeLineSegments(context, point, 2);  // 绘制线段（默认不绘制端点）
     }else{        
         //红线
-        if (openPoint.y>closePoint.y){
+        if (openPoint.y > closePoint.y){
             //创建图形路径句柄
             CGMutablePathRef path = CGPathCreateMutable();
             //设置矩形的边界

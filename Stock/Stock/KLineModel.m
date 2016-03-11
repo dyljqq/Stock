@@ -7,16 +7,10 @@
 //
 
 #import "KLineModel.h"
-#import <AFNetworking/AFNetworking.h>
-#import "SKResponse.h"
 
 static const int MA5 = 5;
 static const int MA10 = 10;
 static const int MA20 = 20;
-
-@interface KLineModel ()
-
-@end
 
 @implementation KLineModel
 
@@ -30,7 +24,9 @@ static const int MA20 = 20;
 }
 
 - (void)getKLineRequest:(NSString *)urlString callback:(KLineModelBlock)callback{
-    [self getData:urlString callback:^(SKResponse* response){
+    JQQRequest* request = [[JQQRequest alloc] initWithUrlString:urlString];
+    request.transmissionFormat = TRANSMISSION_FORMAT_JSON;
+    [request callback:^(JQQResponse* response){
         NSArray* array = response.data[@"data"];
         NSMutableArray* items = [NSMutableArray array];
         NSMutableArray* times = [NSMutableArray array];
@@ -47,14 +43,14 @@ static const int MA20 = 20;
              "-0.92"，涨跌幅
              **/
             NSMutableArray* item = [NSMutableArray array];
-            if([arr[1] floatValue] > _maxValue)
-                _maxValue = [arr[1] floatValue];
-            if([arr[2] floatValue] < _minValue)
-                _minValue = [arr[2] floatValue];
+            if([arr[3] floatValue] > _maxValue)
+                self.maxValue = [arr[3] floatValue];
+            if([arr[4] floatValue] < _minValue)
+                self.minValue = [arr[4] floatValue];
             if([arr[5] unsignedIntegerValue] > _maxVolumeValue)
-                _maxVolumeValue = [arr[5] unsignedIntegerValue];
+                self.maxVolumeValue = [arr[5] unsignedIntegerValue];
             if([arr[5] unsignedIntegerValue] < _minVolumeValue)
-                _minVolumeValue = [arr[5] unsignedIntegerValue];
+                self.minVolumeValue = [arr[5] unsignedIntegerValue];
             [times addObject:arr[0]];
             [item addObject:arr[1]];
             [item addObject:arr[3]];
@@ -95,29 +91,6 @@ static const int MA20 = 20;
         sum += [[array[i] objectAtIndex:4] floatValue];
     }
     return [NSNumber numberWithFloat:sum/[array count]];
-}
-
-- (void)getData:(NSString*)url callback:(void(^)(SKResponse* response))callback{
-    
-     AFHTTPRequestOperationManager * manager = [AFHTTPRequestOperationManager manager];
-     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-     manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        NSLog(@"Response Data:%@",responseObject);
-        NSError *error;
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[operation responseData] options:NSJSONReadingMutableLeaves error:&error];
-        // 字典转模型
-        SKResponse *response = [[SKResponse alloc] init];
-        response.data = dict;
-        if (callback) {
-            callback(response);
-        }
-        
-    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        // 请求异常
-        NSLog(@"请求异常：%@",error);
-    }];
 }
 
 @end

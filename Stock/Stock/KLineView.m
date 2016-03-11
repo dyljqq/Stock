@@ -11,12 +11,6 @@
 #import "KLine.h"
 #import "UIColor+Helper.h"
 #import "StockCommand.h"
-#import "HandleString.h"
-
-#define APPLICATION_SIZE [UIScreen mainScreen].bounds.size
-#define Font(size) [UIFont systemFontOfSize:size]
-#define RGB(R, G, B) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1]
-#define RGBA(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
 
 @interface KLineView ()
 
@@ -97,11 +91,12 @@
     [self addSubview:self.stockNameLabel];
     [self addSubview:self.contentLabel];
     [self addSubview:self.timeLabel];
+    
+    [self drawBox];
 }
 
 
--(void)start{
-    [self drawBox];
+- (void)start{
     thread = [[NSThread alloc] initWithTarget:self selector:@selector(drawLine) object:nil];
     [thread start];
 }
@@ -165,8 +160,8 @@
         mainboxView.userInteractionEnabled = YES;
         [self addSubview:mainboxView];
         // 添加手指捏合手势，放大或缩小k线图
-        pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(touchBoxAction:)];
-        [mainboxView addGestureRecognizer:pinchGesture];
+//        pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(touchBoxAction:)];
+//        [mainboxView addGestureRecognizer:pinchGesture];
         
         UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] init];
         [longPressGestureRecognizer addTarget:self action:@selector(gestureRecognizerHandle:)];
@@ -274,7 +269,6 @@
         for (int i = 0; i < 7; i++) {
             CGFloat y = mainboxView.frame.size.height - padRealValue * i;
             KLine *line = [[KLine alloc] initWithFrame:CGRectMake(0, 0, mainboxView.frame.size.width, mainboxView.frame.size.height)];
-//            line.color = @"#333333";
             line.isColorString = NO;
             line.uicolor = RGB(224, 225, 228);
             line.startPoint = CGPointMake(0, y);
@@ -286,43 +280,14 @@
 }
 
 #pragma mark 画k线
--(void)drawLine{
+- (void)drawLine{
+    
     self.kCount = self.xWidth / (self.kLineWidth+self.kLinePadding) + 1; // K线中实体的总数
     // 获取网络数据，来源于网易接口
     getData = self.kLineModel;
     getData.kCount = self.kCount;
-//    [getData getKLineRequest:@"http://img1.money.126.net/data/hs/kline/day/history/2016/0600725.json" callback:^{
-//        self.data = [getData.stockArray mutableCopy];
-//        self.category = [getData.timeArray mutableCopy];
-//        
-//        // 开始画K线图
-//        [self drawBoxWithKline];
-//        
-//        // 清除旧的k线
-//        if (lineOldArray.count>0 && isUpdate) {
-//            for (KLine *line in lineOldArray) {
-//                [line removeFromSuperview];
-//            }
-//        }
-//        lineOldArray = lineArray.copy;
-//        
-//        if (_finishUpdateBlock && isPinch) {
-//            _finishUpdateBlock(self);
-//        }
-//        isUpdateFinish = YES;
-//        // 结束线程
-//        [thread cancel];
-//        
-//        self.stockNameLabel.text = [NSString stringWithFormat:@"sh%@", getData.symbol];
-//        float width = [HandleString lableWidth:self.stockNameLabel.text withSize:CGSizeMake(100, 9) withFont:Font(8)];
-//        self.stockNameLabel.frame = CGRectMake(mainboxView.frame.origin.x, 5, width, 9);
-//        self.contentLabel.frame = CGRectMake(self.stockNameLabel.frame.size.width + self.stockNameLabel.frame.origin.x + 30, 5, 150, 9);
-//    }];
     self.data = [getData.stockArray mutableCopy];
     self.category = [getData.timeArray mutableCopy];
-    
-    // 开始画K线图
-    [self drawBoxWithKline];
     
     // 清除旧的k线
     if (lineOldArray.count>0 && isUpdate) {
@@ -330,6 +295,10 @@
             [line removeFromSuperview];
         }
     }
+    
+    // 开始画K线图
+    [self drawBoxWithKline];
+    
     lineOldArray = lineArray.copy;
     
     if (_finishUpdateBlock && isPinch) {
@@ -338,7 +307,6 @@
     isUpdateFinish = YES;
     // 结束线程
     [thread cancel];
-    
     self.stockNameLabel.text = [NSString stringWithFormat:@"sh%@", getData.symbol];
     float width = [HandleString lableWidth:self.stockNameLabel.text withSize:CGSizeMake(100, 9) withFont:Font(8)];
     self.stockNameLabel.frame = CGRectMake(mainboxView.frame.origin.x, 5, width, 9);
@@ -379,7 +347,7 @@
     for (int i = 0; i < 4; i++) {
         CGFloat y = bottomBoxView.frame.size.height + bottomBoxView.frame.origin.y - padRealValue * i;
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(-40, y - 9, 38, 9)];
-        label.textColor = [UIColor blackColor];
+        label.textColor = TextGrayColor;
         label.text = [StockCommand changePriceUnit:(padValue * i + getData.minVolumeValue)];
         label.font = self.font;
         label.textAlignment = NSTextAlignmentRight;
@@ -712,7 +680,7 @@
 - (UILabel *)stockNameLabel{
     if(_stockNameLabel == nil){
         _stockNameLabel = [UILabel new];
-        _stockNameLabel.textColor = [UIColor blackColor];
+        _stockNameLabel.textColor = TextFontColor;
         _stockNameLabel.font = self.font;
     }
     return _stockNameLabel;
@@ -722,7 +690,7 @@
     if(_contentLabel == nil){
         _contentLabel = [UILabel new];
         _contentLabel.text = @"上证指数 - 日K线图";
-        _contentLabel.textColor = [UIColor blackColor];
+        _contentLabel.textColor = TextFontColor;
         _contentLabel.font = self.font;
     }
     return _contentLabel;
@@ -731,7 +699,7 @@
 - (UILabel *)timeLabel{
     if(_timeLabel == nil){
         _timeLabel = [UILabel new];
-        _timeLabel.textColor = [UIColor blackColor];
+        _timeLabel.textColor = TextFontColor;
         _timeLabel.font = self.font;
         NSDateFormatter* fommater = [NSDateFormatter new];
         fommater.dateFormat = @"YYYY-MM-DD HH:mm:ss";
