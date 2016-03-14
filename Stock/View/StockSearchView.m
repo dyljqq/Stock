@@ -7,6 +7,14 @@
 //
 
 #import "StockSearchView.h"
+#import "StockDataModel.h"
+#import "NowDataView.h"
+
+@interface StockSearchView () <UISearchBarDelegate>
+
+@property (nonatomic, strong)NowDataView* dataView;
+
+@end
 
 @implementation StockSearchView
 
@@ -21,11 +29,23 @@
 - (void)initView{
     self.backgroundColor = [UIColor whiteColor];
     
-    self.dataArray = [NSArray array];
-    self.filterArray = [NSArray array];
+    self.dataArray = [StockDataModel allStocks];
+    self.filterArray = [StockDataModel allStocks];
     
     [self addSubview:self.tableView];
     self.tableView.tableHeaderView = self.searchController.searchBar;
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    [self addSubview:self.dataView];
+    if([self.dataArray count] == 0 || [self.filterArray count] == 0)
+        [self showDataView];
+}
+
+- (void)showDataView{
+    self.dataView.hidden = NO;
+}
+
+- (void)hideDataView{
+    self.dataView.hidden = YES;
 }
 
 #pragma Delegate
@@ -56,13 +76,23 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if(self.searchController.active){
         [self.delegate chooseItem:_filterArray[indexPath.row]];
+        [StockDataModel setAllStocks:_filterArray[indexPath.row]];
+        [StockDataModel setLastStock:_filterArray[indexPath.row]];
     }else{
         [self.delegate chooseItem:_dataArray[indexPath.row]];
+        [StockDataModel setAllStocks:_dataArray[indexPath.row]];
+        [StockDataModel setLastStock:_dataArray[indexPath.row]];
     }
 }
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
     NSString* text = searchController.searchBar.text;
+    if([BaseMethod isNOTNull:text])
+        [self.delegate passSearchText:text];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    NSString* text = searchBar.text;
     [self.delegate passSearchText:text];
 }
 
@@ -77,6 +107,7 @@
         _searchController.hidesNavigationBarDuringPresentation = NO;
         _searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0);
         _searchController.searchBar.backgroundColor = [UIColor whiteColor];
+        _searchController.searchBar.delegate = self;
     }
     return _searchController;
 }
@@ -90,6 +121,17 @@
         _tableView.showsVerticalScrollIndicator = NO;
     }
     return _tableView;
+}
+
+#pragma Private Method
+- (NowDataView *)dataView{
+    if(!_dataView){
+        _dataView = [[NowDataView alloc] initWithFrame:self.bounds];
+        _dataView.text = @"暂无数据";
+        [_dataView updateImageView:[UIImage imageNamed:@"icon-kong"] height:37.5];
+        _dataView.hidden = YES;
+    }
+    return _dataView;
 }
 
 @end

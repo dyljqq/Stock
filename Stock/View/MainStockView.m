@@ -112,7 +112,6 @@
 
 - (void)buyAction{
     //TODO
-    [self.delegate buy];
 }
 
 #pragma Private Method

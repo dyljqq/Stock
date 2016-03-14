@@ -28,4 +28,8 @@
 
 @property (nonatomic, weak)id<StockSearchViewDelegate> delegate;
 
+- (void)showDataView;
+
+- (void)hideDataView;
+
 @end

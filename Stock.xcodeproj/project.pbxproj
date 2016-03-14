@@ -25,21 +25,24 @@
 		73DCDE831C92BBDB006E838D /* StockSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDE821C92BBDB006E838D /* StockSearchModel.m */; };
 		73DCDE881C92BCDB006E838D /* JQQRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDE851C92BCDB006E838D /* JQQRequest.m */; };
 		73DCDE891C92BCDB006E838D /* JQQResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDE871C92BCDB006E838D /* JQQResponse.m */; };
-		73DCDEA91C92BEE7006E838D /* ColorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDE8C1C92BEE7006E838D /* ColorModel.m */; };
-		73DCDEAA1C92BEE7006E838D /* HandicapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDE8E1C92BEE7006E838D /* HandicapModel.m */; };
-		73DCDEAB1C92BEE7006E838D /* HandicapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDE901C92BEE7006E838D /* HandicapView.m */; };
-		73DCDEAC1C92BEE7006E838D /* KLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDE921C92BEE7006E838D /* KLine.m */; };
-		73DCDEAD1C92BEE7006E838D /* KLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDE941C92BEE7006E838D /* KLineModel.m */; };
-		73DCDEAE1C92BEE7006E838D /* KLinesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDE961C92BEE7006E838D /* KLinesView.m */; };
-		73DCDEAF1C92BEE7006E838D /* KLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDE981C92BEE7006E838D /* KLineView.m */; };
-		73DCDEB01C92BEE7006E838D /* MoveKLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDE9A1C92BEE7006E838D /* MoveKLineView.m */; };
-		73DCDEB11C92BEE7006E838D /* SharingPlanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDE9C1C92BEE7006E838D /* SharingPlanModel.m */; };
-		73DCDEB21C92BEE7006E838D /* SharingPlansLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDE9E1C92BEE7006E838D /* SharingPlansLine.m */; };
-		73DCDEB31C92BEE7006E838D /* SharingPlansModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDEA01C92BEE7006E838D /* SharingPlansModel.m */; };
-		73DCDEB41C92BEE7006E838D /* SharingPlansView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDEA21C92BEE7006E838D /* SharingPlansView.m */; };
-		73DCDEB51C92BEE7006E838D /* StockBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDEA41C92BEE7006E838D /* StockBoxView.m */; };
-		73DCDEB61C92BEE7006E838D /* StockCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDEA61C92BEE7006E838D /* StockCommand.m */; };
-		73DCDEB71C92BEE7006E838D /* UIColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDEA81C92BEE7006E838D /* UIColor+Helper.m */; };
+		73DCDEDF1C969869006E838D /* ColorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDEC01C969869006E838D /* ColorModel.m */; };
+		73DCDEE01C969869006E838D /* HandicapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDEC21C969869006E838D /* HandicapModel.m */; };
+		73DCDEE11C969869006E838D /* HandicapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDEC41C969869006E838D /* HandicapView.m */; };
+		73DCDEE21C969869006E838D /* KLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDEC61C969869006E838D /* KLine.m */; };
+		73DCDEE31C969869006E838D /* KLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDEC81C969869006E838D /* KLineModel.m */; };
+		73DCDEE41C969869006E838D /* KLinesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDECA1C969869006E838D /* KLinesView.m */; };
+		73DCDEE51C969869006E838D /* KLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDECC1C969869006E838D /* KLineView.m */; };
+		73DCDEE61C969869006E838D /* MoveKLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDECE1C969869006E838D /* MoveKLineView.m */; };
+		73DCDEE71C969869006E838D /* SharingPlanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDED01C969869006E838D /* SharingPlanModel.m */; };
+		73DCDEE81C969869006E838D /* SharingPlansLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDED21C969869006E838D /* SharingPlansLine.m */; };
+		73DCDEE91C969869006E838D /* SharingPlansModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDED41C969869006E838D /* SharingPlansModel.m */; };
+		73DCDEEA1C969869006E838D /* SharingPlansView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDED61C969869006E838D /* SharingPlansView.m */; };
+		73DCDEEB1C969869006E838D /* StockBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDED81C969869006E838D /* StockBoxView.m */; };
+		73DCDEEC1C969869006E838D /* StockCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDEDA1C969869006E838D /* StockCommand.m */; };
+		73DCDEED1C969869006E838D /* StockDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDEDC1C969869006E838D /* StockDataModel.m */; };
+		73DCDEEE1C969869006E838D /* UIColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDEDE1C969869006E838D /* UIColor+Helper.m */; };
+		73DCDEF11C9699D8006E838D /* BaseMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDEF01C9699D8006E838D /* BaseMethod.m */; };
+		73DCDEF41C969BE6006E838D /* NowDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCDEF31C969BE6006E838D /* NowDataView.m */; };
 		CF12324B064B3E3FE64EDD78 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E3F99D804488949BA05E8C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -81,36 +84,42 @@
 		73DCDE851C92BCDB006E838D /* JQQRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQQRequest.m; sourceTree = "<group>"; };
 		73DCDE861C92BCDB006E838D /* JQQResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQQResponse.h; sourceTree = "<group>"; };
 		73DCDE871C92BCDB006E838D /* JQQResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQQResponse.m; sourceTree = "<group>"; };
-		73DCDE8B1C92BEE7006E838D /* ColorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorModel.h; sourceTree = "<group>"; };
-		73DCDE8C1C92BEE7006E838D /* ColorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorModel.m; sourceTree = "<group>"; };
-		73DCDE8D1C92BEE7006E838D /* HandicapModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandicapModel.h; sourceTree = "<group>"; };
-		73DCDE8E1C92BEE7006E838D /* HandicapModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandicapModel.m; sourceTree = "<group>"; };
-		73DCDE8F1C92BEE7006E838D /* HandicapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandicapView.h; sourceTree = "<group>"; };
-		73DCDE901C92BEE7006E838D /* HandicapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandicapView.m; sourceTree = "<group>"; };
-		73DCDE911C92BEE7006E838D /* KLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLine.h; sourceTree = "<group>"; };
-		73DCDE921C92BEE7006E838D /* KLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLine.m; sourceTree = "<group>"; };
-		73DCDE931C92BEE7006E838D /* KLineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLineModel.h; sourceTree = "<group>"; };
-		73DCDE941C92BEE7006E838D /* KLineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLineModel.m; sourceTree = "<group>"; };
-		73DCDE951C92BEE7006E838D /* KLinesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLinesView.h; sourceTree = "<group>"; };
-		73DCDE961C92BEE7006E838D /* KLinesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLinesView.m; sourceTree = "<group>"; };
-		73DCDE971C92BEE7006E838D /* KLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLineView.h; sourceTree = "<group>"; };
-		73DCDE981C92BEE7006E838D /* KLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLineView.m; sourceTree = "<group>"; };
-		73DCDE991C92BEE7006E838D /* MoveKLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveKLineView.h; sourceTree = "<group>"; };
-		73DCDE9A1C92BEE7006E838D /* MoveKLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveKLineView.m; sourceTree = "<group>"; };
-		73DCDE9B1C92BEE7006E838D /* SharingPlanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharingPlanModel.h; sourceTree = "<group>"; };
-		73DCDE9C1C92BEE7006E838D /* SharingPlanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharingPlanModel.m; sourceTree = "<group>"; };
-		73DCDE9D1C92BEE7006E838D /* SharingPlansLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharingPlansLine.h; sourceTree = "<group>"; };
-		73DCDE9E1C92BEE7006E838D /* SharingPlansLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharingPlansLine.m; sourceTree = "<group>"; };
-		73DCDE9F1C92BEE7006E838D /* SharingPlansModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharingPlansModel.h; sourceTree = "<group>"; };
-		73DCDEA01C92BEE7006E838D /* SharingPlansModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharingPlansModel.m; sourceTree = "<group>"; };
-		73DCDEA11C92BEE7006E838D /* SharingPlansView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharingPlansView.h; sourceTree = "<group>"; };
-		73DCDEA21C92BEE7006E838D /* SharingPlansView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharingPlansView.m; sourceTree = "<group>"; };
-		73DCDEA31C92BEE7006E838D /* StockBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockBoxView.h; sourceTree = "<group>"; };
-		73DCDEA41C92BEE7006E838D /* StockBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockBoxView.m; sourceTree = "<group>"; };
-		73DCDEA51C92BEE7006E838D /* StockCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockCommand.h; sourceTree = "<group>"; };
-		73DCDEA61C92BEE7006E838D /* StockCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockCommand.m; sourceTree = "<group>"; };
-		73DCDEA71C92BEE7006E838D /* UIColor+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Helper.h"; sourceTree = "<group>"; };
-		73DCDEA81C92BEE7006E838D /* UIColor+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Helper.m"; sourceTree = "<group>"; };
+		73DCDEBF1C969869006E838D /* ColorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorModel.h; sourceTree = "<group>"; };
+		73DCDEC01C969869006E838D /* ColorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorModel.m; sourceTree = "<group>"; };
+		73DCDEC11C969869006E838D /* HandicapModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandicapModel.h; sourceTree = "<group>"; };
+		73DCDEC21C969869006E838D /* HandicapModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandicapModel.m; sourceTree = "<group>"; };
+		73DCDEC31C969869006E838D /* HandicapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandicapView.h; sourceTree = "<group>"; };
+		73DCDEC41C969869006E838D /* HandicapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandicapView.m; sourceTree = "<group>"; };
+		73DCDEC51C969869006E838D /* KLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLine.h; sourceTree = "<group>"; };
+		73DCDEC61C969869006E838D /* KLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLine.m; sourceTree = "<group>"; };
+		73DCDEC71C969869006E838D /* KLineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLineModel.h; sourceTree = "<group>"; };
+		73DCDEC81C969869006E838D /* KLineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLineModel.m; sourceTree = "<group>"; };
+		73DCDEC91C969869006E838D /* KLinesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLinesView.h; sourceTree = "<group>"; };
+		73DCDECA1C969869006E838D /* KLinesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLinesView.m; sourceTree = "<group>"; };
+		73DCDECB1C969869006E838D /* KLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLineView.h; sourceTree = "<group>"; };
+		73DCDECC1C969869006E838D /* KLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLineView.m; sourceTree = "<group>"; };
+		73DCDECD1C969869006E838D /* MoveKLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveKLineView.h; sourceTree = "<group>"; };
+		73DCDECE1C969869006E838D /* MoveKLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveKLineView.m; sourceTree = "<group>"; };
+		73DCDECF1C969869006E838D /* SharingPlanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharingPlanModel.h; sourceTree = "<group>"; };
+		73DCDED01C969869006E838D /* SharingPlanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharingPlanModel.m; sourceTree = "<group>"; };
+		73DCDED11C969869006E838D /* SharingPlansLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharingPlansLine.h; sourceTree = "<group>"; };
+		73DCDED21C969869006E838D /* SharingPlansLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharingPlansLine.m; sourceTree = "<group>"; };
+		73DCDED31C969869006E838D /* SharingPlansModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharingPlansModel.h; sourceTree = "<group>"; };
+		73DCDED41C969869006E838D /* SharingPlansModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharingPlansModel.m; sourceTree = "<group>"; };
+		73DCDED51C969869006E838D /* SharingPlansView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharingPlansView.h; sourceTree = "<group>"; };
+		73DCDED61C969869006E838D /* SharingPlansView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharingPlansView.m; sourceTree = "<group>"; };
+		73DCDED71C969869006E838D /* StockBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockBoxView.h; sourceTree = "<group>"; };
+		73DCDED81C969869006E838D /* StockBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockBoxView.m; sourceTree = "<group>"; };
+		73DCDED91C969869006E838D /* StockCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockCommand.h; sourceTree = "<group>"; };
+		73DCDEDA1C969869006E838D /* StockCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockCommand.m; sourceTree = "<group>"; };
+		73DCDEDB1C969869006E838D /* StockDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockDataModel.h; sourceTree = "<group>"; };
+		73DCDEDC1C969869006E838D /* StockDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockDataModel.m; sourceTree = "<group>"; };
+		73DCDEDD1C969869006E838D /* UIColor+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Helper.h"; sourceTree = "<group>"; };
+		73DCDEDE1C969869006E838D /* UIColor+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Helper.m"; sourceTree = "<group>"; };
+		73DCDEEF1C9699D8006E838D /* BaseMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMethod.h; sourceTree = "<group>"; };
+		73DCDEF01C9699D8006E838D /* BaseMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMethod.m; sourceTree = "<group>"; };
+		73DCDEF21C969BE6006E838D /* NowDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NowDataView.h; sourceTree = "<group>"; };
+		73DCDEF31C969BE6006E838D /* NowDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NowDataView.m; sourceTree = "<group>"; };
 		79E3F99D804488949BA05E8C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -156,13 +165,11 @@
 		73961D971C8DA58B00D193EC /* Stock */ = {
 			isa = PBXGroup;
 			children = (
-				73DCDE8A1C92BEE7006E838D /* Stock */,
+				73DCDEF51C96A112006E838D /* Other */,
+				73DCDEBE1C969869006E838D /* Stock */,
 				73DCDE311C92B8EC006E838D /* Controller */,
 				73DCDE3A1C92B8EC006E838D /* model */,
 				73DCDE5A1C92B8EC006E838D /* View */,
-				73961DDB1C8DAAF200D193EC /* HandleString.h */,
-				73961DDC1C8DAAF200D193EC /* HandleString.m */,
-				73961DC81C8DA69A00D193EC /* Networking */,
 				73961D9B1C8DA58B00D193EC /* AppDelegate.h */,
 				73961D9C1C8DA58B00D193EC /* AppDelegate.m */,
 				73961DA11C8DA58B00D193EC /* Main.storyboard */,
@@ -223,6 +230,8 @@
 		73DCDE5A1C92B8EC006E838D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				73DCDEF21C969BE6006E838D /* NowDataView.h */,
+				73DCDEF31C969BE6006E838D /* NowDataView.m */,
 				73DCDE5B1C92B8EC006E838D /* MainStockView.h */,
 				73DCDE5C1C92B8EC006E838D /* MainStockView.m */,
 				73DCDE5D1C92B8EC006E838D /* StockBarView.h */,
@@ -235,41 +244,79 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		73DCDE8A1C92BEE7006E838D /* Stock */ = {
+		73DCDEBE1C969869006E838D /* Stock */ = {
 			isa = PBXGroup;
 			children = (
-				73DCDE8B1C92BEE7006E838D /* ColorModel.h */,
-				73DCDE8C1C92BEE7006E838D /* ColorModel.m */,
-				73DCDE8D1C92BEE7006E838D /* HandicapModel.h */,
-				73DCDE8E1C92BEE7006E838D /* HandicapModel.m */,
-				73DCDE8F1C92BEE7006E838D /* HandicapView.h */,
-				73DCDE901C92BEE7006E838D /* HandicapView.m */,
-				73DCDE911C92BEE7006E838D /* KLine.h */,
-				73DCDE921C92BEE7006E838D /* KLine.m */,
-				73DCDE931C92BEE7006E838D /* KLineModel.h */,
-				73DCDE941C92BEE7006E838D /* KLineModel.m */,
-				73DCDE951C92BEE7006E838D /* KLinesView.h */,
-				73DCDE961C92BEE7006E838D /* KLinesView.m */,
-				73DCDE971C92BEE7006E838D /* KLineView.h */,
-				73DCDE981C92BEE7006E838D /* KLineView.m */,
-				73DCDE991C92BEE7006E838D /* MoveKLineView.h */,
-				73DCDE9A1C92BEE7006E838D /* MoveKLineView.m */,
-				73DCDE9B1C92BEE7006E838D /* SharingPlanModel.h */,
-				73DCDE9C1C92BEE7006E838D /* SharingPlanModel.m */,
-				73DCDE9D1C92BEE7006E838D /* SharingPlansLine.h */,
-				73DCDE9E1C92BEE7006E838D /* SharingPlansLine.m */,
-				73DCDE9F1C92BEE7006E838D /* SharingPlansModel.h */,
-				73DCDEA01C92BEE7006E838D /* SharingPlansModel.m */,
-				73DCDEA11C92BEE7006E838D /* SharingPlansView.h */,
-				73DCDEA21C92BEE7006E838D /* SharingPlansView.m */,
-				73DCDEA31C92BEE7006E838D /* StockBoxView.h */,
-				73DCDEA41C92BEE7006E838D /* StockBoxView.m */,
-				73DCDEA51C92BEE7006E838D /* StockCommand.h */,
-				73DCDEA61C92BEE7006E838D /* StockCommand.m */,
-				73DCDEA71C92BEE7006E838D /* UIColor+Helper.h */,
-				73DCDEA81C92BEE7006E838D /* UIColor+Helper.m */,
+				73DCDEF81C96A16F006E838D /* Handicap */,
+				73DCDEF71C96A15D006E838D /* SharingPlan */,
+				73DCDEF61C96A134006E838D /* KLine */,
 			);
 			path = Stock;
+			sourceTree = "<group>";
+		};
+		73DCDEF51C96A112006E838D /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				73961DC81C8DA69A00D193EC /* Networking */,
+				73DCDEEF1C9699D8006E838D /* BaseMethod.h */,
+				73DCDEF01C9699D8006E838D /* BaseMethod.m */,
+				73961DDB1C8DAAF200D193EC /* HandleString.h */,
+				73961DDC1C8DAAF200D193EC /* HandleString.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		73DCDEF61C96A134006E838D /* KLine */ = {
+			isa = PBXGroup;
+			children = (
+				73DCDEBF1C969869006E838D /* ColorModel.h */,
+				73DCDEC01C969869006E838D /* ColorModel.m */,
+				73DCDEC51C969869006E838D /* KLine.h */,
+				73DCDEC61C969869006E838D /* KLine.m */,
+				73DCDEC71C969869006E838D /* KLineModel.h */,
+				73DCDEC81C969869006E838D /* KLineModel.m */,
+				73DCDEC91C969869006E838D /* KLinesView.h */,
+				73DCDECA1C969869006E838D /* KLinesView.m */,
+				73DCDECB1C969869006E838D /* KLineView.h */,
+				73DCDECC1C969869006E838D /* KLineView.m */,
+				73DCDECD1C969869006E838D /* MoveKLineView.h */,
+				73DCDECE1C969869006E838D /* MoveKLineView.m */,
+				73DCDED71C969869006E838D /* StockBoxView.h */,
+				73DCDED81C969869006E838D /* StockBoxView.m */,
+				73DCDED91C969869006E838D /* StockCommand.h */,
+				73DCDEDA1C969869006E838D /* StockCommand.m */,
+				73DCDEDB1C969869006E838D /* StockDataModel.h */,
+				73DCDEDC1C969869006E838D /* StockDataModel.m */,
+				73DCDEDD1C969869006E838D /* UIColor+Helper.h */,
+				73DCDEDE1C969869006E838D /* UIColor+Helper.m */,
+			);
+			name = KLine;
+			sourceTree = "<group>";
+		};
+		73DCDEF71C96A15D006E838D /* SharingPlan */ = {
+			isa = PBXGroup;
+			children = (
+				73DCDECF1C969869006E838D /* SharingPlanModel.h */,
+				73DCDED01C969869006E838D /* SharingPlanModel.m */,
+				73DCDED11C969869006E838D /* SharingPlansLine.h */,
+				73DCDED21C969869006E838D /* SharingPlansLine.m */,
+				73DCDED31C969869006E838D /* SharingPlansModel.h */,
+				73DCDED41C969869006E838D /* SharingPlansModel.m */,
+				73DCDED51C969869006E838D /* SharingPlansView.h */,
+				73DCDED61C969869006E838D /* SharingPlansView.m */,
+			);
+			name = SharingPlan;
+			sourceTree = "<group>";
+		};
+		73DCDEF81C96A16F006E838D /* Handicap */ = {
+			isa = PBXGroup;
+			children = (
+				73DCDEC11C969869006E838D /* HandicapModel.h */,
+				73DCDEC21C969869006E838D /* HandicapModel.m */,
+				73DCDEC31C969869006E838D /* HandicapView.h */,
+				73DCDEC41C969869006E838D /* HandicapView.m */,
+			);
+			name = Handicap;
 			sourceTree = "<group>";
 		};
 		D9669CAAE008980757585026 /* Frameworks */ = {
@@ -386,35 +433,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				73DCDE831C92BBDB006E838D /* StockSearchModel.m in Sources */,
-				73DCDEB41C92BEE7006E838D /* SharingPlansView.m in Sources */,
+				73DCDEEA1C969869006E838D /* SharingPlansView.m in Sources */,
+				73DCDEEE1C969869006E838D /* UIColor+Helper.m in Sources */,
+				73DCDEF11C9699D8006E838D /* BaseMethod.m in Sources */,
 				73DCDE881C92BCDB006E838D /* JQQRequest.m in Sources */,
 				73DCDE661C92B8EC006E838D /* ViewController.m in Sources */,
 				73DCDE761C92B8EC006E838D /* MainStockView.m in Sources */,
 				73DCDE771C92B8EC006E838D /* StockBarView.m in Sources */,
-				73DCDEB11C92BEE7006E838D /* SharingPlanModel.m in Sources */,
-				73DCDEB61C92BEE7006E838D /* StockCommand.m in Sources */,
+				73DCDEE71C969869006E838D /* SharingPlanModel.m in Sources */,
+				73DCDEEC1C969869006E838D /* StockCommand.m in Sources */,
 				73DCDE801C92BB68006E838D /* SKService.m in Sources */,
-				73DCDEAA1C92BEE7006E838D /* HandicapModel.m in Sources */,
+				73DCDEE01C969869006E838D /* HandicapModel.m in Sources */,
 				73DCDE891C92BCDB006E838D /* JQQResponse.m in Sources */,
-				73DCDEB71C92BEE7006E838D /* UIColor+Helper.m in Sources */,
-				73DCDEA91C92BEE7006E838D /* ColorModel.m in Sources */,
+				73DCDEDF1C969869006E838D /* ColorModel.m in Sources */,
 				73DCDE791C92B8EC006E838D /* StockSearchView.m in Sources */,
-				73DCDEAB1C92BEE7006E838D /* HandicapView.m in Sources */,
-				73DCDEB51C92BEE7006E838D /* StockBoxView.m in Sources */,
-				73DCDEB21C92BEE7006E838D /* SharingPlansLine.m in Sources */,
+				73DCDEE11C969869006E838D /* HandicapView.m in Sources */,
+				73DCDEEB1C969869006E838D /* StockBoxView.m in Sources */,
+				73DCDEE81C969869006E838D /* SharingPlansLine.m in Sources */,
 				73DCDE651C92B8EC006E838D /* StockSearchController.m in Sources */,
-				73DCDEAF1C92BEE7006E838D /* KLineView.m in Sources */,
+				73DCDEE51C969869006E838D /* KLineView.m in Sources */,
+				73DCDEED1C969869006E838D /* StockDataModel.m in Sources */,
 				73961DD91C8DA69A00D193EC /* SKResponse.m in Sources */,
-				73DCDEAE1C92BEE7006E838D /* KLinesView.m in Sources */,
-				73DCDEAC1C92BEE7006E838D /* KLine.m in Sources */,
+				73DCDEE41C969869006E838D /* KLinesView.m in Sources */,
+				73DCDEE21C969869006E838D /* KLine.m in Sources */,
 				73DCDE631C92B8EC006E838D /* MainStockController.m in Sources */,
 				73961DDD1C8DAAF200D193EC /* HandleString.m in Sources */,
 				73DCDE781C92B8EC006E838D /* StockScrollView.m in Sources */,
-				73DCDEB01C92BEE7006E838D /* MoveKLineView.m in Sources */,
+				73DCDEE61C969869006E838D /* MoveKLineView.m in Sources */,
+				73DCDEF41C969BE6006E838D /* NowDataView.m in Sources */,
 				73961D9D1C8DA58B00D193EC /* AppDelegate.m in Sources */,
 				73961D9A1C8DA58B00D193EC /* main.m in Sources */,
-				73DCDEAD1C92BEE7006E838D /* KLineModel.m in Sources */,
-				73DCDEB31C92BEE7006E838D /* SharingPlansModel.m in Sources */,
+				73DCDEE31C969869006E838D /* KLineModel.m in Sources */,
+				73DCDEE91C969869006E838D /* SharingPlansModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -145,11 +145,19 @@
     [self.mainBoxView addSubview:self.stockBoxView];
 }
 
+- (void)updateViewIfNoData{
+    
+}
+
 - (void)updateView:(SharingPlanModel*)model{
     
     planModel = model;
     
-    self.stockNameLabel.text = [NSString stringWithFormat:@"sh%@", model.symbol];
+    if([BaseMethod isNOTNull:model.symbol]){
+        self.stockNameLabel.text = [NSString stringWithFormat:@"sh%@", model.symbol];
+    }else{
+        self.stockNameLabel.text = @"--";
+    }
     float width = [HandleString lableWidth:self.stockNameLabel.text withSize:CGSizeMake(100, 10) withFont:Font(8)];
     self.stockNameLabel.frame = CGRectMake(self.mainBoxView.frame.origin.x, 5, width, 9);
     self.contentLabel.frame = CGRectMake(self.stockNameLabel.frame.size.width + self.stockNameLabel.frame.origin.x + 30, 5, 150, 9);
@@ -174,10 +182,14 @@
     NSInteger size = [mainLeftLabels count];
     for (int i = 0; i < [mainLeftLabels count]; i++) {
         UILabel* leftLabel = (UILabel*)mainLeftLabels[i];
-        leftLabel.text = [NSString stringWithFormat:@"%.2f", (size/2 - i) * valueSpace + model.yesterdayClosePrice];
-        
         UILabel* rightLabel = (UILabel*)mainRightLabels[i];
-        rightLabel.text = [NSString stringWithFormat:@"%.2f%%", ((size/2 - i) * valueSpace) / model.yesterdayClosePrice * 100];
+        if([model.currentPriceArray count] > 0){
+            leftLabel.text = [NSString stringWithFormat:@"%.2f", (size/2 - i) * valueSpace + model.yesterdayClosePrice];
+            rightLabel.text = [NSString stringWithFormat:@"%.2f%%", ((size/2 - i) * valueSpace) / model.yesterdayClosePrice * 100];
+        }else{
+            leftLabel.text = @"";
+            rightLabel.text = @"";
+        }
     }
     
     self.dashLine.startPoint = CGPointMake(0, self.mainBoxView.frame.size.height/2);
@@ -200,7 +212,11 @@
     volumSpace = volumSpace ? volumSpace : 25000;
     for (int i = 0; i < [volumsLabels count]; i++) {
         UILabel* label = (UILabel*)volumsLabels[i];
-        label.text = [NSString stringWithFormat:@"%.2f", volumSpace * ([volumsLabels count] - i - 1)/1000];
+        if([model.volumnsArray count] > 0){
+            label.text = [NSString stringWithFormat:@"%.2f", volumSpace * ([volumsLabels count] - i - 1)/1000];
+        }else{
+            label.text = @"";
+        }
     }
     
     x = 0;
@@ -209,15 +225,22 @@
     space = volumSpace ? y / (model.maxVolum - model.minVolum) : 1;
     [current removeAllObjects];
     self.volumnLine.lineWidth = self.volumnsView.frame.size.width / [model.volumnsArray count] - 0.5;
-    for (int i = 0; i < [model.volumnsArray count]; i++) {
+    NSMutableArray* verticalLineColorArray = [NSMutableArray arrayWithObject:[NSNumber numberWithInteger:SHARING_PLAN_VERTICAL_COLOR_RED]];
+    for (int i = 1; i < [model.volumnsArray count]; i++) {
         NSString* startPoint = [NSString stringWithFormat:@"{%.2f,%.2f}", x, y];
         long volumn = [model.volumnsArray[i] floatValue] > 0 ? [model.volumnsArray[i] floatValue] : y;
         NSString* endPoint = [NSString stringWithFormat:@"{%.2f,%.2f}", x, volumn * space];
         NSArray* array = @[startPoint, endPoint];
         [current addObject:array];
+        if(model.currentPriceArray[i] > model.currentPriceArray[i - 1]){
+            [verticalLineColorArray addObject:[NSNumber numberWithInteger:SHARING_PLAN_VERTICAL_COLOR_RED]];
+        }else{
+            [verticalLineColorArray addObject:[NSNumber numberWithInteger:SHARING_PLAN_VERTICAL_COLOR_GREEN]];
+        }
         x += 1.5;
     }
     self.volumnLine.linePoints = [current copy];
+    self.volumnLine.verticalColors = [verticalLineColorArray copy];
     [self.volumnLine setNeedsDisplay];
 }
 

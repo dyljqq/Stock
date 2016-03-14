@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    SHARING_PLAN_VERTICAL_COLOR_RED,
+    SHARING_PLAN_VERTICAL_COLOR_GREEN,
+} SHARING_PLAN_VERTICAL_COLOR;
+
 @interface SharingPlansLine : UIView
 
 @property (nonatomic)CGFloat lineWidth;
@@ -15,6 +20,8 @@
 @property (nonatomic, strong)UIColor* lineColor;
 
 @property (nonatomic, copy)NSArray* linePoints;
+
+@property (nonatomic, copy)NSArray* verticalColors;
 
 @property (nonatomic)BOOL isStraight;
 

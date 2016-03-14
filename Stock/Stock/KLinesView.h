@@ -17,4 +17,6 @@
 
 - (void)updateView:(KLineModel*)model;
 
+- (void)updateViewIfNoData;
+
 @end

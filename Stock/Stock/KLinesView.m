@@ -128,10 +128,19 @@
     [self.bottomView addSubview:self.volumnLine];
 }
 
+- (void)updateViewIfNoData{
+    self.stockNameLabel.text = [NSString stringWithFormat:@"--"];
+    float width = [HandleString lableWidth:self.stockNameLabel.text withSize:CGSizeMake(100, 9) withFont:Font(8)];
+    self.stockNameLabel.frame = CGRectMake(self.mainView.frame.origin.x, 5, width, 9);
+    self.contentLabel.frame = CGRectMake(self.stockNameLabel.frame.size.width + self.stockNameLabel.frame.origin.x + 30, 5, 150, 9);
+}
+
 - (void)updateView:(KLineModel*)model{
     kLineModel = model;
-    
-    self.stockNameLabel.text = [NSString stringWithFormat:@"sh%@", model.symbol];
+    if([BaseMethod isNOTNull:model.symbol])
+        self.stockNameLabel.text = [NSString stringWithFormat:@"sh%@", model.symbol];
+    else
+        self.stockNameLabel.text = @"--";
     float width = [HandleString lableWidth:self.stockNameLabel.text withSize:CGSizeMake(100, 9) withFont:Font(8)];
     self.stockNameLabel.frame = CGRectMake(self.mainView.frame.origin.x, 5, width, 9);
     self.contentLabel.frame = CGRectMake(self.stockNameLabel.frame.size.width + self.stockNameLabel.frame.origin.x + 30, 5, 150, 9);
@@ -139,14 +148,22 @@
     CGFloat unitValue = (model.maxValue - model.minValue)/8;
     for (int i = 0; i < [mainLeftLabels count]; i++) {
         UILabel* label = (UILabel*)mainLeftLabels[i];
-        label.text = [NSString stringWithFormat:@"%.2f", model.maxValue - unitValue * i];
+        if(model.maxValue != 0){
+            label.text = [NSString stringWithFormat:@"%.2f", model.maxValue - unitValue * i];
+        }else{
+            label.text = @"";
+        }
     }
     
     CGFloat unitVolum = (model.maxVolumeValue - model.minVolumeValue)/4;
     for (int i = 0; i < [bottomLabels count]; i++) {
         UILabel* label = (UILabel*)bottomLabels[i];
         CGFloat value = model.maxVolumeValue - unitVolum * i;
-        label.text = [NSString stringWithFormat:@"%@", [StockCommand changePriceUnit:value]];
+        if(model.maxValue != 0){
+            label.text = [NSString stringWithFormat:@"%@", [StockCommand changePriceUnit:value]];
+        }else{
+            label.text = @"";
+        }
     }
     self.unitLabel.text = [NSString stringWithFormat:@"%@", [StockCommand changePrice:model.minVolumeValue]];
     

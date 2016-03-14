@@ -16,6 +16,7 @@
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     NSSet *set = [NSSet setWithObjects:@"application/json",@"text/json",@"text/javascript",@"text/html",@"text/plain", @"application/x-javascript", nil];
     manager.responseSerializer.acceptableContentTypes = set;
+    urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
         NSString* str = operation.responseString;
         NSArray* array = [str componentsSeparatedByString:@"\""];

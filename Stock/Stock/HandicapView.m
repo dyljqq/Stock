@@ -25,6 +25,46 @@
     [self initView:array colors:colors];
 }
 
+- (void)updateViewIfNoData{
+    int index = 0;
+    NSMutableArray* contents = [NSMutableArray array];
+    NSMutableArray* colors = [NSMutableArray array];
+    while (index < 10) {
+        NSMutableArray* arr = [NSMutableArray array];
+        [arr addObject:[NSString stringWithFormat:@"卖--"]];
+        [arr addObject:@"--"];
+        [arr addObject:@"--"];
+        index += 2;
+        [contents addObject:arr];
+        [colors addObject:@[TextFontColor, NavColor, NavColor]];
+    }
+    index = 0;
+    while (index < 10) {
+        NSMutableArray* arr = [NSMutableArray array];
+        [arr addObject:[NSString stringWithFormat:@"买 --"]];
+        [arr addObject:@"--"];
+        [arr addObject:@"--"];
+        index += 2;
+        [contents addObject:arr];
+        [colors addObject:@[TextFontColor, RGB(76, 209, 207), TextGrayColor]];
+    }
+    [contents addObject:@[@"今开", @"--"]];
+    [colors addObject:@[TextFontColor, NavColor]];
+    [contents addObject:@[@"昨收", @"--"]];
+    [colors addObject:@[TextFontColor, NavColor]];
+    [contents addObject:@[@"最高", @"--"]];
+    [colors addObject:@[TextFontColor, NavColor]];
+    [contents addObject:@[@"最低", @"--"]];
+    [colors addObject:@[TextFontColor, RGB(76, 209, 207)]];
+    [contents addObject:@[@"振幅", @"--"]];
+    [colors addObject:@[TextFontColor, NavColor]];
+    [contents addObject:@[@"涨停价", @"--"]];
+    [colors addObject:@[TextFontColor, NavColor]];
+    [contents addObject:@[@"跌停价", @"--"]];
+    [colors addObject:@[TextFontColor, RGB(76, 209, 207)]];
+    [self updateView:contents textColors:colors];
+}
+
 - (void)initView:(NSArray*)array colors:(NSArray*)colors{
     self.backgroundColor = [UIColor clearColor];
     CGFloat x = 15, y = 0;
@@ -34,7 +74,16 @@
             y = 0;
         }
         [self addView:CGRectMake(x, y, APPLICATION_SIZE.width / 2, 14) contents:array[i] colors:colors[i]];
-        y += 20;
+        if(i % 5 == 4){
+            if(i == 4){
+                UIView* line = [[UIView alloc] initWithFrame:CGRectMake(0, y + 22, self.frame.size.width, 1)];
+                line.backgroundColor = LINE_COLOR;
+                [self addSubview:line];
+            }
+            y += 30;
+        }else{
+            y += 20;
+        }
     }
 }
 

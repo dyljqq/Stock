@@ -14,4 +14,6 @@
 
 - (void)updateView:(NSArray*)array textColors:(NSArray*)colors;
 
+- (void)updateViewIfNoData;
+
 @end

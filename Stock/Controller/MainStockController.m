@@ -12,6 +12,7 @@
 #import "HandicapModel.h"
 #import "SharingPlansModel.h"
 #import "StockSearchController.h"
+#import "StockDataModel.h"
 
 #define KLINE_URL_PREFIX @"http://img1.money.126.net/data/hs/kline/day/history/2016/"
 #define SHARING_PLANS_URL_PREFIX @"http://img1.money.126.net/data/hs/time/today/"
@@ -32,6 +33,9 @@
     NSString* handicapUrl;
     NSString* fullStock;
     KLineModel* kModel;
+    NSString* suffix;
+    NSString* stockCode;
+    NSString* stockName;
 }
 
 - (id)init {
@@ -49,42 +53,22 @@
     stockView.delegate = self;
     [self.view addSubview:stockView];
     
-    self.title = @"云维股份";
-    
-    fullStock = @"sh600725";
-    kModel = [KLineModel new];
-    kModel.name = @"云维股份";
-    kModel.symbol = @"600725";
-    kModel.currentValue = 5.34;
-    kLineUrl = @"http://img1.money.126.net/data/hs/kline/day/history/2016/0600725.json";
-    sharingPlansUrl = @"http://img1.money.126.net/data/hs/time/today/0600725.json";
-    handicapUrl = @"http://hq.sinajs.cn/list=sh600725";
-    [self getData];
+    if([StockDataModel allStocks]){
+        [self getStock:[StockDataModel lastStock]];
+    }else{
+        fullStock = @"sh600725";
+        stockName = @"云维股份";
+        stockCode = @"600725";
+        kModel = [KLineModel new];
+        kLineUrl = @"http://img1.money.126.net/data/hs/kline/day/history/2016/0600725.json";
+        sharingPlansUrl = @"http://img1.money.126.net/data/hs/time/today/0600725.json";
+        handicapUrl = @"http://hq.sinajs.cn/list=sh600725";
+    }
     [self createNavi];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    
-    [super viewDidAppear:animated];
-    
-    // 禁用 iOS7 返回手势
-    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
-    }
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    
-    [super viewWillDisappear:animated];
-    
-    // 开启
-    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
-    }
+    [self getData];
 }
 
 - (void)createNavi{
-    
     alterStockButton = [[UIButton alloc] initWithFrame:CGRectMake(APPLICATION_SIZE.width - 15 - 100, 26.5, 100, 31)];
     [alterStockButton setTitle:@"更换股票" forState:UIControlStateNormal];
     [alterStockButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -96,8 +80,7 @@
     alterStockButton.layer.borderWidth = 0.5;
     [alterStockButton setImage:[UIImage imageNamed:@"iconfont_ss"] forState:UIControlStateNormal];
     [alterStockButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 10)];
-    [alterStockButton addTarget:self action:@selector(alterStockAction) forControlEvents:UIControlEventTouchUpInside];
-    
+    [alterStockButton addTarget:self action:@selector(alterStockAction) forControlEvents:UIControlEventTouchUpInside];    
     UIBarButtonItem* right = [[UIBarButtonItem alloc] initWithCustomView:alterStockButton];
     self.navigationItem.rightBarButtonItem = right;
 }
@@ -105,14 +88,18 @@
 #pragma Delegate
 
 - (void)getStock:(NSArray *)stocks{
+    stockName = stocks[4];
     NSString* s = [NSString stringWithFormat:@"%@", stocks[3]];
     fullStock = s;
+    suffix = @"sh";
     int sh = 0;
     if([s containsString:@"sz"]){
         sh = 1;
+        suffix = @"sz";
     }
-    kLineUrl = [NSString stringWithFormat:@"%@%d%@.json", KLINE_URL_PREFIX, sh, stocks[0]];
-    sharingPlansUrl = [NSString stringWithFormat:@"%@%d%@.json", SHARING_PLANS_URL_PREFIX, sh, stocks[0]];
+    stockCode = [NSString stringWithFormat:@"%@", stocks[2]];
+    kLineUrl = [NSString stringWithFormat:@"%@%d%@.json", KLINE_URL_PREFIX, sh, stocks[2]];
+    sharingPlansUrl = [NSString stringWithFormat:@"%@%d%@.json", SHARING_PLANS_URL_PREFIX, sh, stocks[2]];
     handicapUrl = [NSString stringWithFormat:@"%@%@", HANDICAP_URL_PREFIX, stocks[3]];
     [self getData];
 }
@@ -127,12 +114,12 @@
 
 #pragma Private Method
 
-- (void)getData{    
+- (void)getData{
     KLineModel* kLineModel = [KLineModel new];
     [kLineModel getKLineRequest:kLineUrl callback:^{
         kModel = kLineModel;
-        self.title = [NSString stringWithFormat:@"%@(%@)", kLineModel.name, kLineModel.symbol];
         [stockView updateView:kLineModel];
+        self.title = [NSString stringWithFormat:@"%@(%@)", stockName, stockCode];
     }];
     
     /**
@@ -163,14 +150,21 @@
      31：”15:05:32″，时间；
      **/
     [HandicapModel getHandicapRequest:handicapUrl callback:^(NSArray* array){
+        if([array count] <= 1){
+            NSLog(@"该股票已退市");
+            [stockView updateStockView:nil colors:nil];
+            return ;
+        }
         int index = 0;
         NSMutableArray* contents = [NSMutableArray array];
         NSMutableArray* colors = [NSMutableArray array];
         while (index < 10) {
             NSMutableArray* arr = [NSMutableArray array];
             [arr addObject:[NSString stringWithFormat:@"卖%d", (10 - index)/2]];
-            [arr addObject:array[29 - index]];
-            [arr addObject:array[29 - index - 1]];
+            CGFloat f = [[NSString stringWithFormat:@"%@", array[29 - index]] floatValue];
+            [arr addObject:[NSString stringWithFormat:@"%.2f", f]];
+            CGFloat f1 = [[NSString stringWithFormat:@"%@", array[29 - index - 1]] floatValue]/100;
+            [arr addObject:[NSString stringWithFormat:@"%.0f", f1]];
             index += 2;
             [contents addObject:arr];
             [colors addObject:@[TextFontColor, NavColor, NavColor]];
@@ -178,20 +172,29 @@
         index = 0;
         while (index < 10) {
             NSMutableArray* arr = [NSMutableArray array];
-            [arr addObject:[NSString stringWithFormat:@"买%d", (index + 1)/2]];
-            [arr addObject:array[10 + index + 1]];
-            [arr addObject:array[10 + index]];
+            [arr addObject:[NSString stringWithFormat:@"买%d", index/2 + 1]];
+            CGFloat f = [[NSString stringWithFormat:@"%@", array[10 + index + 1]] floatValue];
+            [arr addObject:[NSString stringWithFormat:@"%.2f", f]];
+            CGFloat f1 = [[NSString stringWithFormat:@"%@", array[10 + index]] floatValue]/100;
+            [arr addObject:[NSString stringWithFormat:@"%.0f", f1]];
             index += 2;
             [contents addObject:arr];
             [colors addObject:@[TextFontColor, RGB(76, 209, 207), TextGrayColor]];
         }
-        [contents addObject:@[@"今开", array[1]]];
+        CGFloat f = [[NSString stringWithFormat:@"%@", array[1]] floatValue];
+        [contents addObject:@[@"今开", [NSString stringWithFormat:@"%.2f", f]]];
         [colors addObject:@[TextFontColor, NavColor]];
-        [contents addObject:@[@"昨收", array[2]]];
+        
+        f = [[NSString stringWithFormat:@"%@", array[2]] floatValue];
+        [contents addObject:@[@"昨收", [NSString stringWithFormat:@"%.2f", f]]];
         [colors addObject:@[TextFontColor, NavColor]];
-        [contents addObject:@[@"最高", array[4]]];
+        
+        f = [[NSString stringWithFormat:@"%@", array[4]] floatValue];
+        [contents addObject:@[@"最高", [NSString stringWithFormat:@"%.2f", f]]];
         [colors addObject:@[TextFontColor, NavColor]];
-        [contents addObject:@[@"最低", array[5]]];
+        
+        f = [[NSString stringWithFormat:@"%@", array[5]] floatValue];
+        [contents addObject:@[@"最低", [NSString stringWithFormat:@"%.2f", f]]];
         [colors addObject:@[TextFontColor, RGB(76, 209, 207)]];
         float min = [array[5] floatValue];
         float max = [array[4] floatValue];
@@ -209,5 +212,6 @@
         [stockView updateSharingPlansView:model];
     }];
 }
+
 
 @end

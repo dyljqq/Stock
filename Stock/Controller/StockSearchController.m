@@ -9,6 +9,7 @@
 #import "StockSearchController.h"
 #import "StockSearchModel.h"
 #import "StockSearchView.h"
+#import "StockDataModel.h"
 
 @interface StockSearchController ()<StockSearchViewDelegate>
 
@@ -21,15 +22,13 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.title = @"查找股票";
-    self.view.backgroundColor = [UIColor whiteColor];
-    
+    self.view.backgroundColor = [UIColor whiteColor];    
     stockSearchView = [[StockSearchView alloc] initWithFrame:CGRectMake(0, 0, APPLICATION_SIZE.width, APPLICATION_SIZE.height - 64)];
     stockSearchView.delegate = self;
     [self.view addSubview:stockSearchView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    
     [super viewWillAppear:animated];
     // 开启
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
@@ -43,6 +42,9 @@
             stockSearchView.filterArray = array;
             stockSearchView.dataArray = array;
             [stockSearchView.tableView reloadData];
+            [stockSearchView hideDataView];
+        }else{
+            [stockSearchView showDataView];
         }
     }];
 }
@@ -62,7 +64,7 @@
 
 - (void)chooseItem:(NSArray *)array{
     [self.delegate getStock:array];
-//    [self dismissViewControllerAnimated:YES completion:nil];
+    //    [self dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

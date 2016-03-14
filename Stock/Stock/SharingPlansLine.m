@@ -3,7 +3,6 @@
 //  DDTG
 //
 //  Created by 季勤强 on 16/3/8.
-//  Copyright © 2016年 翟玉磊. All rights reserved.
 //
 
 #import "SharingPlansLine.h"
@@ -70,19 +69,38 @@
 - (void)drawVertical{
     if([self.linePoints count] <= 0)
         return ;
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, self.lineWidth);
+    const CGFloat* redColors = CGColorGetComponents([UIColor redColor].CGColor);
+    const CGFloat* grayColors = CGColorGetComponents([UIColor lightGrayColor].CGColor);
     for (int i = 0; i < [self.linePoints count]; i++) {
         CGPoint startPoint = CGPointFromString(self.linePoints[i][0]);
         CGPoint endPoint = CGPointFromString(self.linePoints[i][1]);
-        CGContextSetShouldAntialias(context, YES);
-        CGContextMoveToPoint(context, startPoint.x, startPoint.y);
-        CGContextAddLineToPoint(context, endPoint.x, endPoint.y);
+        switch ([self.verticalColors[i] integerValue]) {
+            case SHARING_PLAN_VERTICAL_COLOR_RED:
+            {
+                CGContextRef context = UIGraphicsGetCurrentContext();
+                CGContextSetLineWidth(context, self.lineWidth);
+                CGContextSetRGBStrokeColor(context, redColors[0], redColors[1], redColors[2], 1);
+                CGContextSetShouldAntialias(context, YES);
+                CGContextMoveToPoint(context, startPoint.x, startPoint.y);
+                CGContextAddLineToPoint(context, endPoint.x, endPoint.y);
+                CGContextDrawPath(context, kCGPathFillStroke);
+            }
+                break;
+                
+            case SHARING_PLAN_VERTICAL_COLOR_GREEN:
+            {
+                CGContextRef context = UIGraphicsGetCurrentContext();
+                CGContextSetLineWidth(context, self.lineWidth);
+                CGContextSetRGBStrokeColor(context, grayColors[0], grayColors[1], grayColors[2], 1.0);
+                CGContextMoveToPoint(context, startPoint.x, startPoint.y);
+                CGContextAddLineToPoint(context, endPoint.x, endPoint.y);
+                CGContextDrawPath(context, kCGPathFillStroke);
+            }
+                
+            default:
+                break;
+        }
     }
-    CGContextSetLineWidth(context, self.lineWidth);
-    [self.lineColor setFill];
-//    [[UIColor clearColor] setFill];
-    CGContextDrawPath(context, kCGPathFillStroke);
 }
 
 - (void)drawDash:(CGContextRef)context{
