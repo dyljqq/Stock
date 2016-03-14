@@ -51,8 +51,10 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    stockSearchView.searchController.searchBar.hidden = YES;
-    [stockSearchView.searchController.searchBar resignFirstResponder];
+    if(stockSearchView.searchController.active){
+        [stockSearchView.searchController.searchBar removeFromSuperview];
+        [stockSearchView.searchController.searchBar resignFirstResponder];
+    }
 }
 
 #pragma Delegate
