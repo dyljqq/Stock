@@ -224,7 +224,7 @@
     volumSpace = (model.maxVolum - model.minVolum);
     space = volumSpace ? y / (model.maxVolum - model.minVolum) : 1;
     [current removeAllObjects];
-    self.volumnLine.lineWidth = self.volumnsView.frame.size.width / [model.volumnsArray count] - 0.5;
+    self.volumnLine.lineWidth = self.volumnsView.frame.size.width/242 - 0.5;
     NSMutableArray* verticalLineColorArray = [NSMutableArray arrayWithObject:[NSNumber numberWithInteger:SHARING_PLAN_VERTICAL_COLOR_RED]];
     for (int i = 1; i < [model.volumnsArray count]; i++) {
         NSString* startPoint = [NSString stringWithFormat:@"{%.2f,%.2f}", x, y];
