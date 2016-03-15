@@ -232,7 +232,7 @@
         NSString* endPoint = [NSString stringWithFormat:@"{%.2f,%.2f}", x, volumn * space];
         NSArray* array = @[startPoint, endPoint];
         [current addObject:array];
-        if(model.currentPriceArray[i] > model.currentPriceArray[i - 1]){
+        if([model.currentPriceArray[i] floatValue] >= [model.currentPriceArray[i - 1] floatValue]){
             [verticalLineColorArray addObject:[NSNumber numberWithInteger:SHARING_PLAN_VERTICAL_COLOR_RED]];
         }else{
             [verticalLineColorArray addObject:[NSNumber numberWithInteger:SHARING_PLAN_VERTICAL_COLOR_GREEN]];
