@@ -9,6 +9,7 @@
 #import "StockSearchView.h"
 #import "StockDataModel.h"
 #import "NowDataView.h"
+#import "StockSearchTableViewCell.h"
 
 @interface StockSearchView () <UISearchBarDelegate>
 
@@ -58,16 +59,14 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"CELL"];
+    StockSearchTableViewCell* cell = (StockSearchTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"CELL"];
     if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CELL"];
+        cell = [[StockSearchTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CELL"];
     }
     if(self.searchController.active){
-        cell.detailTextLabel.text = _filterArray[indexPath.row][4];
-        cell.textLabel.text = _filterArray[indexPath.row][0];
+        [cell updateCell:_filterArray[indexPath.row][4] stockCode:_filterArray[indexPath.row][0]];
     }else {
-        cell.detailTextLabel.text = _dataArray[indexPath.row][4];
-        cell.textLabel.text = _dataArray[indexPath.row][0];
+        [cell updateCell:_dataArray[indexPath.row][4] stockCode:_dataArray[indexPath.row][0]];
     }
     return cell;
 }

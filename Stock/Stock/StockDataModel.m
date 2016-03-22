@@ -23,7 +23,7 @@
         }
     }];
     if(!flag)
-        [arrays addObject:array];
+        [arrays insertObject:array atIndex:0];
     [[NSUserDefaults standardUserDefaults] setObject:[arrays copy] forKey:@"allStocks"];
 }
 

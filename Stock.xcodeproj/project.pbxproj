@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73860A481CA1134F00A3391C /* StockSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73860A471CA1134F00A3391C /* StockSearchTableViewCell.m */; };
 		73961D9A1C8DA58B00D193EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73961D991C8DA58B00D193EC /* main.m */; };
 		73961D9D1C8DA58B00D193EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73961D9C1C8DA58B00D193EC /* AppDelegate.m */; };
 		73961DA31C8DA58B00D193EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73961DA11C8DA58B00D193EC /* Main.storyboard */; };
@@ -49,6 +50,8 @@
 /* Begin PBXFileReference section */
 		309224F6EAABE7AB3A2A2B08 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4B182CE1D1BC1034C9D01162 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		73860A461CA1134F00A3391C /* StockSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockSearchTableViewCell.h; sourceTree = "<group>"; };
+		73860A471CA1134F00A3391C /* StockSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockSearchTableViewCell.m; sourceTree = "<group>"; };
 		73961D951C8DA58B00D193EC /* Stock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73961D991C8DA58B00D193EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		73961D9B1C8DA58B00D193EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -144,6 +147,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		73860A451CA1132700A3391C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				73860A461CA1134F00A3391C /* StockSearchTableViewCell.h */,
+				73860A471CA1134F00A3391C /* StockSearchTableViewCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		73961D8C1C8DA58B00D193EC = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +177,7 @@
 		73961D971C8DA58B00D193EC /* Stock */ = {
 			isa = PBXGroup;
 			children = (
+				73860A451CA1132700A3391C /* Cell */,
 				73DCDEF51C96A112006E838D /* Other */,
 				73DCDEBE1C969869006E838D /* Stock */,
 				73DCDE311C92B8EC006E838D /* Controller */,
@@ -446,6 +459,7 @@
 				73DCDEE01C969869006E838D /* HandicapModel.m in Sources */,
 				73DCDE891C92BCDB006E838D /* JQQResponse.m in Sources */,
 				73DCDEDF1C969869006E838D /* ColorModel.m in Sources */,
+				73860A481CA1134F00A3391C /* StockSearchTableViewCell.m in Sources */,
 				73DCDE791C92B8EC006E838D /* StockSearchView.m in Sources */,
 				73DCDEE11C969869006E838D /* HandicapView.m in Sources */,
 				73DCDEEB1C969869006E838D /* StockBoxView.m in Sources */,
