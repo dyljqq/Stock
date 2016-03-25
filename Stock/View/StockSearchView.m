@@ -64,9 +64,9 @@
         cell = [[StockSearchTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CELL"];
     }
     if(self.searchController.active){
-        [cell updateCell:_filterArray[indexPath.row][4] stockCode:_filterArray[indexPath.row][0]];
+        [cell updateCell:_filterArray[indexPath.row][4] stockCode:_filterArray[indexPath.row][2]];
     }else {
-        [cell updateCell:_dataArray[indexPath.row][4] stockCode:_dataArray[indexPath.row][0]];
+        [cell updateCell:_dataArray[indexPath.row][4] stockCode:_dataArray[indexPath.row][2]];
     }
     return cell;
 }
