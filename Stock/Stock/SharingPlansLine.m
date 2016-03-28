@@ -48,6 +48,7 @@
     CGContextSetRGBStrokeColor(context, colors[0], colors[1], colors[2], 1);
     const CGPoint points[] = {self.startPoint, self.endPoint};
     CGContextStrokeLineSegments(context, points, 2);
+//    CGContextClosePath(context);
 }
 
 - (void)drawLine{
@@ -64,6 +65,7 @@
     [self.lineColor setStroke];
     [[UIColor clearColor] setFill];
     CGContextDrawPath(context, kCGPathFillStroke);
+//    CGContextClosePath(context);
 }
 
 - (void)drawVertical{
@@ -71,13 +73,13 @@
         return ;
     const CGFloat* redColors = CGColorGetComponents([UIColor redColor].CGColor);
     const CGFloat* grayColors = CGColorGetComponents([UIColor lightGrayColor].CGColor);
+    CGContextRef context = UIGraphicsGetCurrentContext();
     for (int i = 0; i < [self.linePoints count]; i++) {
         CGPoint startPoint = CGPointFromString(self.linePoints[i][0]);
         CGPoint endPoint = CGPointFromString(self.linePoints[i][1]);
         switch ([self.verticalColors[i] integerValue]) {
             case SHARING_PLAN_VERTICAL_COLOR_RED:
             {
-                CGContextRef context = UIGraphicsGetCurrentContext();
                 CGContextSetLineWidth(context, self.lineWidth);
                 CGContextSetRGBStrokeColor(context, redColors[0], redColors[1], redColors[2], 1);
                 CGContextSetShouldAntialias(context, YES);
@@ -89,7 +91,6 @@
                 
             case SHARING_PLAN_VERTICAL_COLOR_GREEN:
             {
-                CGContextRef context = UIGraphicsGetCurrentContext();
                 CGContextSetLineWidth(context, self.lineWidth);
                 CGContextSetRGBStrokeColor(context, grayColors[0], grayColors[1], grayColors[2], 1.0);
                 CGContextMoveToPoint(context, startPoint.x, startPoint.y);
@@ -101,6 +102,7 @@
                 break;
         }
     }
+//    CGContextClosePath(context);
 }
 
 - (void)drawDash:(CGContextRef)context{
@@ -121,7 +123,7 @@
     
     CGContextStrokePath(context);
     
-    CGContextClosePath(context);
+//    CGContextClosePath(context);
 }
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7327155E1CA95C7000A309FA /* MainStockSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7327155D1CA95C7000A309FA /* MainStockSearchTableViewController.m */; };
 		73860A481CA1134F00A3391C /* StockSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73860A471CA1134F00A3391C /* StockSearchTableViewCell.m */; };
 		73961D9A1C8DA58B00D193EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73961D991C8DA58B00D193EC /* main.m */; };
 		73961D9D1C8DA58B00D193EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73961D9C1C8DA58B00D193EC /* AppDelegate.m */; };
@@ -50,6 +51,8 @@
 /* Begin PBXFileReference section */
 		309224F6EAABE7AB3A2A2B08 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4B182CE1D1BC1034C9D01162 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		7327155C1CA95C7000A309FA /* MainStockSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStockSearchTableViewController.h; sourceTree = "<group>"; };
+		7327155D1CA95C7000A309FA /* MainStockSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStockSearchTableViewController.m; sourceTree = "<group>"; };
 		73860A461CA1134F00A3391C /* StockSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockSearchTableViewCell.h; sourceTree = "<group>"; };
 		73860A471CA1134F00A3391C /* StockSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockSearchTableViewCell.m; sourceTree = "<group>"; };
 		73961D951C8DA58B00D193EC /* Stock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +224,8 @@
 		73DCDE311C92B8EC006E838D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7327155C1CA95C7000A309FA /* MainStockSearchTableViewController.h */,
+				7327155D1CA95C7000A309FA /* MainStockSearchTableViewController.m */,
 				73DCDE321C92B8EC006E838D /* MainStockController.h */,
 				73DCDE331C92B8EC006E838D /* MainStockController.m */,
 				73DCDE361C92B8EC006E838D /* StockSearchController.h */,
@@ -469,6 +474,7 @@
 				73DCDEED1C969869006E838D /* StockDataModel.m in Sources */,
 				73961DD91C8DA69A00D193EC /* SKResponse.m in Sources */,
 				73DCDEE41C969869006E838D /* KLinesView.m in Sources */,
+				7327155E1CA95C7000A309FA /* MainStockSearchTableViewController.m in Sources */,
 				73DCDEE21C969869006E838D /* KLine.m in Sources */,
 				73DCDE631C92B8EC006E838D /* MainStockController.m in Sources */,
 				73961DDD1C8DAAF200D193EC /* HandleString.m in Sources */,
@@ -591,6 +597,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "/Users/jiqinqiang/Desktop/学习/github project/Stock/Stock/PrefixHeader.pch";
 				INFOPLIST_FILE = Stock/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hdb.Stock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -604,6 +611,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "/Users/jiqinqiang/Desktop/学习/github project/Stock/Stock/PrefixHeader.pch";
 				INFOPLIST_FILE = Stock/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hdb.Stock;
 				PRODUCT_NAME = "$(TARGET_NAME)";

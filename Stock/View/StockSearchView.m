@@ -31,10 +31,8 @@
     self.backgroundColor = [UIColor whiteColor];
     
     self.dataArray = [StockDataModel allStocks];
-    self.filterArray = [StockDataModel allStocks];
-    
+    self.filterArray = [StockDataModel allStocks];    
     [self addSubview:self.tableView];
-    self.tableView.tableHeaderView = self.searchController.searchBar;
     self.tableView.tableFooterView = [[UIView alloc] init];
     [self addSubview:self.dataView];
     if([self.dataArray count] == 0 || [self.filterArray count] == 0)
@@ -104,7 +102,7 @@
         _searchController.dimsBackgroundDuringPresentation = false;
         _searchController.dimsBackgroundDuringPresentation = NO;
         _searchController.hidesNavigationBarDuringPresentation = NO;
-        _searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0);
+        _searchController.searchBar.frame = CGRectMake(0, 0, self.searchController.searchBar.frame.size.width, 44.0);
         _searchController.searchBar.backgroundColor = [UIColor whiteColor];
         _searchController.searchBar.delegate = self;
     }
@@ -118,6 +116,7 @@
         _tableView.delegate = self;
         _tableView.backgroundColor = [UIColor clearColor];
         _tableView.showsVerticalScrollIndicator = NO;
+        self.tableView.tableHeaderView = self.searchController.searchBar;
     }
     return _tableView;
 }

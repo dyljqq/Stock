@@ -13,12 +13,13 @@
 #import "SharingPlansModel.h"
 #import "StockSearchController.h"
 #import "StockDataModel.h"
+#import "MainStockSearchTableViewController.h"
 
 #define KLINE_URL_PREFIX @"http://img1.money.126.net/data/hs/kline/day/history/2016/"
 #define SHARING_PLANS_URL_PREFIX @"http://img1.money.126.net/data/hs/time/today/"
 #define HANDICAP_URL_PREFIX @"http://hq.sinajs.cn/list="
 
-@interface MainStockController ()<StockSearchControllerDelegate, MainStockViewDelegate>
+@interface MainStockController ()<StockSearchControllerDelegate, MainStockViewDelegate, MainStockSearchTableViewControllerDelegate>
 
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSTimer *TradingDayTimer;
@@ -49,7 +50,9 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    stockView = [[MainStockView alloc] initWithFrame:CGRectMake(0, 64, APPLICATION_SIZE.width, APPLICATION_SIZE.height - 64)];
+    self.navigationController.navigationBar.translucent = NO;
+    
+    stockView = [[MainStockView alloc] initWithFrame:CGRectMake(0, 0, APPLICATION_SIZE.width, APPLICATION_SIZE.height - 64)];
     stockView.delegate = self;
     [self.view addSubview:stockView];
     
@@ -63,9 +66,9 @@
         kLineUrl = @"http://img1.money.126.net/data/hs/kline/day/history/2016/0600725.json";
         sharingPlansUrl = @"http://img1.money.126.net/data/hs/time/today/0600725.json";
         handicapUrl = @"http://hq.sinajs.cn/list=sh600725";
+        [self getData];
     }
     [self createNavi];
-    [self getData];
 }
 
 - (void)createNavi{
@@ -107,7 +110,7 @@
 #pragma Action
 
 - (void)alterStockAction{
-    StockSearchController* searchController = [StockSearchController new];
+    MainStockSearchTableViewController* searchController = [MainStockSearchTableViewController new];
     searchController.delegate = self;
     [self.navigationController pushViewController:searchController animated:YES];
 }

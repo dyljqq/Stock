@@ -91,8 +91,11 @@
 }
 
 - (void)updateStockView:(NSArray*)contents colors:(NSArray*)colors{
-    [self.handicapView updateView:contents textColors:colors];
-}
+    if(contents){
+        [self.handicapView updateView:contents textColors:colors];
+    }else{
+        [self.handicapView updateViewIfNoData];
+    }}
 
 - (void)updateSharingPlansView:(id)model{    
     [self.sharingPlansView updateView:model];

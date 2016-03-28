@@ -22,7 +22,8 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.title = @"查找股票";
-    self.view.backgroundColor = [UIColor whiteColor];    
+    self.navigationController.navigationBar.translucent = NO;
+    self.view.backgroundColor = [UIColor whiteColor];
     stockSearchView = [[StockSearchView alloc] initWithFrame:CGRectMake(0, 0, APPLICATION_SIZE.width, APPLICATION_SIZE.height - 64)];
     stockSearchView.delegate = self;
     [self.view addSubview:stockSearchView];
