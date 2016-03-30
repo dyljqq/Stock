@@ -11,15 +11,14 @@
 #import "MainStockView.h"
 #import "HandicapModel.h"
 #import "SharingPlansModel.h"
-#import "StockSearchController.h"
+#import "MainStockSearchController.h"
 #import "StockDataModel.h"
-#import "MainStockSearchTableViewController.h"
 
 #define KLINE_URL_PREFIX @"http://img1.money.126.net/data/hs/kline/day/history/2016/"
 #define SHARING_PLANS_URL_PREFIX @"http://img1.money.126.net/data/hs/time/today/"
 #define HANDICAP_URL_PREFIX @"http://hq.sinajs.cn/list="
 
-@interface MainStockController ()<StockSearchControllerDelegate, MainStockViewDelegate, MainStockSearchTableViewControllerDelegate>
+@interface MainStockController ()<MainStockViewDelegate, MainStockSearchControllerDelegate>
 
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSTimer *TradingDayTimer;
@@ -74,9 +73,9 @@
 - (void)createNavi{
     alterStockButton = [[UIButton alloc] initWithFrame:CGRectMake(APPLICATION_SIZE.width - 15 - 100, 26.5, 100, 31)];
     [alterStockButton setTitle:@"更换股票" forState:UIControlStateNormal];
-    [alterStockButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [alterStockButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     alterStockButton.titleLabel.font = Font(16);
-    alterStockButton.backgroundColor = RGBA(232, 83, 110, 0.36);
+//    alterStockButton.backgroundColor = RGBA(232, 83, 110, 0.36);
     alterStockButton.layer.cornerRadius = 3;
     alterStockButton.layer.masksToBounds = YES;
     alterStockButton.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -110,7 +109,7 @@
 #pragma Action
 
 - (void)alterStockAction{
-    MainStockSearchTableViewController* searchController = [MainStockSearchTableViewController new];
+    MainStockSearchController* searchController = [MainStockSearchController new];
     searchController.delegate = self;
     [self.navigationController pushViewController:searchController animated:YES];
 }
