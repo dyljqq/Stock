@@ -9,12 +9,9 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 #import "AppDelegate.h"
-#import "SKService.h"
+#import "AFNetworking.h"
+#import "Masonry.h"
 #import "HandleString.h"
-#import <AFNetworking/AFNetworking.h>
-#import "JQQRequest.h"
-#import "JQQResponse.h"
-#import "BaseMethod.h"
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
@@ -33,6 +30,9 @@
 #define NavColor [UIColor colorWithRed:225/255.0 green:41/255.0 blue:75/255.0 alpha:1]     //导航条颜色
 #define BACKGROUND_COLOR [UIColor colorWithRed:239/255.0 green:240/255.0 blue:241/255.0 alpha:1]
 #define LINE_COLOR RGB(235,236,237)
-
+#define LeftSpacing 15
+#define COMMON_FRAME CGRectMake(0, 0, APPLICATION_SIZE.width, APPLICATION_SIZE.height - 64)
+#define REUSE_CELL(index) [NSString stringWithFormat:@"CELL%d", index]
+#define REUSE_CELL_WITH_SECTION(section, index) [NSString stringWithFormat:@"CELL%ld%ld", section,index]
 
 #endif /* PrefixHeader_pch */

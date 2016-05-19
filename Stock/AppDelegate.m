@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "MainStockController.h"
+#import "StockSearchController.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +21,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    MainStockController* main = [MainStockController new];
+    StockSearchController* main = [StockSearchController new];
     UINavigationController* navi = [[UINavigationController alloc] initWithRootViewController:main];
     self.window.rootViewController = navi;
     [self.window makeKeyAndVisible];
